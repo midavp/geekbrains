@@ -1,0 +1,31 @@
+.b-logoandtext {
+    
+    &__logo {
+        font-size: 46px;
+        font-variant: small-caps;
+        color: #333333;
+    }
+    
+    &__text {
+        font-size: 12px;
+        color: #999999;
+    }
+    
+    &_position {
+        position: absolute;
+        top: 21px;
+        left: 29px;
+    }
+}
+
+@media (max-width:800px) {
+    .b-logoandtext {
+        position: relative;
+//        margin-top: 10px;
+    }
+    
+    .b-logoandtext_position {
+        left: 0px;
+        top: 41px;
+    }
+}

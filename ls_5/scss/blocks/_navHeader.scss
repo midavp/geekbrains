@@ -1,0 +1,25 @@
+.b-navHeader {
+    width: 253px;
+    height: 13px;
+    font-size: 12px;
+
+    &_position {
+        position: absolute;
+        right: 0;
+        top: 81px;
+    }
+    &__item {
+        color: #81b300;
+    }
+    &__item:hover {
+        color: #999;
+    }
+}
+
+@media (max-width:800px) {
+    .b-navHeader_position {
+        position: relative;
+        margin-top: 60px;
+        top: 0px;
+    }
+}

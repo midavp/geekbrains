@@ -1,0 +1,32 @@
+.b-websiteSearch {
+    height: 30px;
+    
+    &__input {
+        border: none;
+        color: #999;
+        height: inherit;
+        padding: 9px;
+    }
+    
+    &__input_position {
+        float: left;
+    }
+    
+    &__button {    
+        font-size: 12px;
+        height: inherit;
+        transition-duration: 0.5s;
+    }
+    
+    &__button_modif {
+        color: #81b300;
+        background-color: white;
+        border: none;
+        border-left: 1px solid #999;
+    }
+    &__button:hover {
+        background-color: #999;
+        color: white;
+    }
+}
+

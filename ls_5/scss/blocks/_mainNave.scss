@@ -1,0 +1,41 @@
+.b-mainNave {
+    display: flex;
+//    font-size: 12px;
+    justify-content: space-between;
+    background-color: #81b300;
+    padding: 30px;
+
+    &_position {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    
+    &__item {
+        color: white;
+        padding-right: 15px;
+        transition-duration: 0.5s;
+    }
+    
+    &__item:hover {
+        color: #333;
+    }
+}
+
+@media (max-width:800px) {
+    .b-mainNave {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+}
+
+@media (max-width:1200px) {
+    .b-mainNave {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .b-websiteSearch_margin {
+        margin-top: 15px;
+    }
+    
+}
