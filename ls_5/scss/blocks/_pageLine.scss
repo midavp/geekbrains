@@ -1,0 +1,12 @@
+.b-pageLine {
+    height: 1px;
+    background-color: #e2e2e2;
+    
+    &_marginPage1 {
+        margin: 0 -15px 50px -15px;
+    }
+    
+    &_marginPage2 {
+        margin: 50px 20px 50px 20px;
+    }
+}

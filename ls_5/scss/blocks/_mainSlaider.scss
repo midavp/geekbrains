@@ -1,0 +1,68 @@
+.b-mainSlaider {
+    display: flex;
+//    font-size: 12px;
+    justify-content: space-between;
+//    width: 100%;
+    background-color: #f2f2f2;
+    padding: 31px;
+    flex-direction: column;
+    z-index: 100;
+     position: relative;
+    
+    
+    &_position {
+        margin-left: -15px;
+        margin-right: -15px;
+        
+    }
+    
+    &__Items {
+        padding: 9px;
+        background-color: white;
+        z-index: 10;
+        position: relative;
+    }
+    
+    &__item {
+        position: relative;
+        z-index: 1;
+        animation-name: slaid;
+        animation-duration: 2s;
+    }
+    
+    &__perekluchs {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+    }
+    
+    &__perekluch {
+        width: 15px;
+        height: 15px;
+        background-color: black;
+        margin-right: 10px;
+        border-radius: 7px;
+        transition-duration: 0.5s;
+        
+    }
+    
+    &__perekluch:hover {
+        background-color: silver;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+}
+
+//.slaiderimg {
+//    animation-name: slaid;
+//    animation-duration: 2s;
+//}
+
+@keyframes slaid {
+    from {
+        right: 0%;
+    }
+    to {
+        right: 100%;
+    }
+}
