@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "variables.css",
+	"sources": [
+		"../../scss/blocks/variables.scss"
+	],
+	"sourcesContent": [
+		"@font-face {\r\n    font-family: \"Georgia\";\r\n    src: url(../fonts/Georgia.ttf);\r\n}\r\n\r\n$fontGeorgia: \"Georgia\", sans-serif;\r\n"
+	],
+	"names": [],
+	"mappings": "AAAA,UAAU;EACN,WAAW,EAAE,SAAS;EACtB,GAAG,EAAE,yBAAyB"
+}

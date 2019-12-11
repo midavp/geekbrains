@@ -1,0 +1,30 @@
+{
+	"version": 3,
+	"file": "all.css",
+	"sources": [
+		"../../scss/blocks/all.scss",
+		"../../scss/blocks/variables.scss",
+		"../../scss/blocks/_topline.scss",
+		"../../scss/blocks/_socials.scss",
+		"../../scss/blocks/_header.scss",
+		"../../scss/blocks/_logoandtext.scss",
+		"../../scss/blocks/_navHeader.scss",
+		"../../scss/blocks/_mainNave.scss",
+		"../../scss/blocks/_websiteSearch.scss",
+		"../../scss/blocks/_mainSlaider.scss"
+	],
+	"sourcesContent": [
+		"@import \"variables\";\r\n@import \"_topline\";\r\n@import \"_socials\";\r\n@import \"_header\";\r\n@import \"_logoandtext\";\r\n@import \"_navHeader\";\r\n@import \"_mainNave\";\r\n@import \"_websiteSearch\";\r\n@import \"_mainSlaider\";\r\n\r\n\r\nhtml, body {\r\n  min-height: 100%;\r\n}\r\n\r\nbody {\r\n  font-family: $fontGeorgia;\r\n   background: #1f1f1f;\r\n}\r\n\r\n.slaiderimg {\r\n    width: 100% ;\r\n}",
+		"@font-face {\r\n    font-family: \"Georgia\";\r\n    src: url(../fonts/Georgia.ttf);\r\n}\r\n\r\n$fontGeorgia: \"Georgia\", sans-serif;\r\n",
+		".topLine {\r\n    height: 5px;\r\n    background: #81b300;\r\n    margin: 0 -15px;\r\n}",
+		".b-socials {\r\n    width: 251px;\r\n    height: 49px;\r\n    background-color: #81b300;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 10px;\r\n\r\n  &_header {\r\n    border-bottom-left-radius: 10px;\r\n    border-bottom-right-radius: 10px;\r\n    position: absolute;\r\n    right: 0;\r\n    top: 0;\r\n    }\r\n\r\n &__icon {\r\n    font-size: 36px;\r\n    color: black;\r\n    transition-duration: 0.5s;\r\n\r\n    &:hover {\r\n      color: white;\r\n      cursor: pointer;\r\n    }\r\n  }\r\n\r\n  }\r\n",
+		".b-header {\r\n  height: 135px;\r\n  position: relative;\r\n}\r\n",
+		".b-logoandtext {\r\n    \r\n    &__logo {\r\n        font-size: 46px;\r\n        font-variant: small-caps;\r\n        color: #333333;\r\n    }\r\n    \r\n    &__text {\r\n        font-size: 12px;\r\n        color: #999999;\r\n    }\r\n    \r\n    &_position {\r\n        position: absolute;\r\n        top: 21px;\r\n        left: 29px;\r\n    }\r\n}",
+		".b-navHeader {\r\n    width: 253px;\r\n    height: 13px;\r\n    font-size: 12px;\r\n    justify-content: space-between;\r\n\r\n    &_position {\r\n        position: absolute;\r\n        right: 0;\r\n        top: 81px;\r\n    }\r\n    &__item {\r\n        color: #81b300;\r\n    }\r\n}",
+		".b-mainNave {\r\n    display: flex;\r\n//    font-size: 12px;\r\n    justify-content: space-between;\r\n    background-color: #81b300;\r\n    padding: 30px;\r\n\r\n    &_position {\r\n        margin-left: -15px;\r\n        margin-right: -15px;\r\n    }\r\n    \r\n    &__item {\r\n        color: white;\r\n        padding-right: 15px;\r\n        transition-duration: 0.5s;\r\n    }\r\n    &__item:hover {\r\n        color: #333;\r\n    }\r\n}",
+		".b-websiteSearch {\r\n    height: 30px;\r\n    \r\n    &__input {\r\n        border: none;\r\n        color: #999;\r\n        height: inherit;\r\n        padding: 9px;\r\n    }\r\n    \r\n    &__input_position {\r\n        float: left;\r\n    }\r\n    \r\n    &__button {    \r\n        font-size: 12px;\r\n        height: inherit;\r\n        transition-duration: 0.5s;\r\n    }\r\n    \r\n    &__button_modif {\r\n        color: #81b300;\r\n        background-color: white;\r\n        border: none;\r\n        border-left: 1px solid #999;\r\n    }\r\n    &__button:hover {\r\n        background-color: #999;\r\n        color: white;\r\n    }\r\n}",
+		".b-mainSlaider {\r\n    width: 100%;\r\n    background-color: #f2f2f2;\r\n    \r\n    &_position {\r\n//        margin-left: -15px;\r\n//        margin-right: -15px;\r\n        padding: 40px;\r\n    }\r\n}\r\n\r\n"
+	],
+	"names": [],
+	"mappings": "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"
+}
