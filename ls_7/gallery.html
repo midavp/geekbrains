@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper" style = "text-align: center;">
+            <!-- style="margin: auto 10px;"  -->
+        <div style="display: flex; text-align: center;" id="GALLERY"> 
+            <div  style="margin: auto 10px;">
+                <img id="MAIN-PIC-MIN" width="10" height="15">
+            </div>
+            <div>
+                <img id="MAIN-PIC" width="400" height="300">
+            </div>
+            <div style="margin: auto 10px;"> 
+                <img id="MAIN-PIC-PL" width="10" height="15">
+            </div>
+        </div>
+
+        <div id="roulette">
+        </div>
+    </div>
+
+    <script>
+        let IMGS = [
+            'https://cs8.pikabu.ru/post_img/big/2017/12/25/5/1514188160141511997.jpg', 
+            'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/HMUB2?wid=1144&hei=1144&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1563827752399',
+            'https://zeon18.ru/files/item/Xiaomi-Mi-Notebook-Air-4G-Officially-Announced-Weboo-co-2%20(1)_1.jpg',
+            'https://files.sandberg.it/products/images/lg/640-05_lg.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/81PLqxtrJ3L._SX466_.jpg'
+            ]
+        let IMG_MIN = 'https://img1.freepng.ru/20180427/juq/kisspng-arrow-encapsulated-postscript-computer-icons-5ae2dc0e8941b8.3110062915248169105622.jpg'
+        let IMG_PL = 'https://img2.freepng.ru/20180426/dhq/kisspng-arrow-manchester-auto-body-repair-llc-computer-ico-5ae1e8355abbb4.9175569315247544853717.jpg'
+        
+        let MAIN_PIC = document.getElementById ('MAIN-PIC')
+        let MAIN_PIC_MIN = document.getElementById ('MAIN-PIC-MIN')
+        let MAIN_PIC_PL = document.getElementById ('MAIN-PIC-PL')
+        let ROUL = document.getElementById ('roulette')
+        
+        window.onload = function () {
+            MAIN_PIC.src = IMGS [0]
+            MAIN_PIC_MIN.src = IMG_MIN
+            MAIN_PIC_PL.src = IMG_PL
+            IMGS.forEach(el => {
+                ROUL.insertAdjacentHTML ('beforeend', createItem(el).render())
+            })
+        }
+
+        function createItem (item) {
+            return {
+                width: 150,
+                height: 100,
+                render: function () {
+                    return `
+                        <img 
+                        src="${item}" 
+                        width="${this.width}" 
+                        height="${this.height}">
+                    `
+                }
+            }
+        }
+
+        ROUL.addEventListener ('click', changeMain)
+
+        function changeMain (evt) {
+            if (evt.target.tagName === 'IMG') {
+                MAIN_PIC.src = evt.target.src
+            }
+            // console.dir (event.target)
+            //MAIN_PIC.src = source
+        }
+
+        MAIN_PIC_MIN.addEventListener('click', changeClick)
+        MAIN_PIC_PL.addEventListener('click', changeClick)
+
+        function changeClick (evt) {
+            let find = IMGS.findIndex(pr => pr == MAIN_PIC.src)
+                if (find>0 && evt.target.src == IMG_MIN) { 
+                    MAIN_PIC.src = IMGS [find-1] 
+                } 
+                if (find<IMGS.length-1 && evt.target.src == IMG_PL) {
+                    MAIN_PIC.src = IMGS [find+1]
+                }         
+        }
+
+    </script>
+</body>
+</html>
