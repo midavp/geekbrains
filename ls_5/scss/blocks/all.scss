@@ -1,0 +1,31 @@
+@import "variables";
+@import "_topline";
+@import "_socials";
+@import "_header";
+@import "_logoandtext";
+@import "_navHeader";
+@import "_mainNave";
+@import "_mainNave2";
+@import "_websiteSearch";
+@import "_mainSlaider";
+@import "_proects";
+@import "_Vivamuslibero";
+@import "_pageLine";
+@import "_contacts";
+@import "_footer";
+
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  font-family: $fontGeorgia;
+   background: #1f1f1f;
+}
+
+.slaiderimg {
+    width: 100% ;
+}
+
+

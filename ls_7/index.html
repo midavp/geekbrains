@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Comp magasin</title>
+<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<!--   <link rel="stylesheet" href="style1.css">-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logoContacts" style="position: relative;"> 
+                <a class="headerImg" href="#"><img src="img/Logo.png" alt="logo"></a>
+                <div class="Headeradd1">
+                    <img class="" src="img/2-layers_time.png" alt="">
+                </div>
+                <div class="Headeradd2">
+                   <form action="" class="websiteSearch">
+                      <input type="text" class="websiteSearch__input" placeholder="Поиск товара...">
+                      <button class="websiteSearch__button" value="SEARCH">ПОИСК</button>         
+                   </form>
+                    </div>
+                <div class="Headeradd3">
+                    <img class="cartGl" id="cartC" src="img/2-layers_call.png" alt="">
+                             
+                </div>
+            </div>
+            <div class="bestCart" id="bestCt" style="position: absolute; width: 300px; border: 1px; 
+            background-color: rgba(231, 231, 231, 0.884); top: 100px; right: 100px; border-radius: 5px; " >
+<!-- display: none -->
+            </div>
+        </header>
+        <hr>
+        
+        <main>
+            <div class="bestUnits" id="best">
+
+            </div>
+            
+        </main>
+        <hr>
+    </div>    
+    <footer>
+            <p>Copyright © 2017. PSDFreebies.com  | Best PSD Template for freelancer and agencies</p>
+        </footer>
+    <script>
+            //ИМИТАЦИЯ РАБОТЫ БАЗЫ ДАННЫХ И СЕРВЕРА
+    
+            let PRODUCTS_NAMES = ['Processor', 'Display', 'Notebook', 'Mouse', 'Keyboard', 'Videokarta']
+            let PRICES = [100, 120, 1000, 15, 18, 40]
+            let IDS = [0, 1, 2, 3, 4, 5]
+            let IMG = ['images/proect_00.jpg', 'images/proect_01.jpg', 'images/proect_02.jpg', 'images/proect_03.jpg', 'images/proect_04.jpg', 'images/proect_05.jpg']
+    
+            //let products = [] //массив объектов
+            
+            let catalog = {
+                items: [],
+                container: '.bestUnits', 
+                construct () {
+                    this._init () //_ - это обозначение инкапсулированного метода
+                },
+                _init () {
+                    this._handleData ()
+                    this.render ()
+                },
+                _handleData () {
+                    for (let i = 0; i < IDS.length; i++) {
+                        this.items.push (this._createNewProduct (i))
+                    }
+                },
+                _createNewProduct (index) {
+                    return {
+                        product_name: PRODUCTS_NAMES [index],
+                        price: PRICES [index],
+                        product_id: IDS [index],
+                        product_img: IMG [index]
+
+                    }
+                },
+                render () {
+                    let str = ''
+                    this.items.forEach (item => {
+                        str += `
+                        <div class="bestUnit">
+                            <h3>${item.product_name}</h3>
+                            <img class="b-proects__img" src=${item.product_img} alt=""><br>
+                            <b>${item.price}$</b><br>
+                            <button class="btn_add" id = ${item.product_id}>Купить</button>
+                        </div>
+                            
+                        `
+                    }) 
+                    document.querySelector(this.container).innerHTML = str
+
+                }
+            }
+    // ${item.IDS}
+            let cart = {
+                items: [],
+                total: 0,
+                sum: 0,
+                containercart: '.bestCart',
+                addProduct (product) {
+                    let id = product
+                    //нарушение инкапсуляции (Вообще так не делаем, но пока делаем)
+                    let prod = catalog._createNewProduct (product)
+                    
+                    let find = this.items.find (product => product.product_id === id)
+                    if (find) {
+                        find.quantity++
+                    } else {
+                        prod.quantity = 1
+                        this.items.push (prod)
+                    }
+                    
+                    
+                    this.cheklist()
+                    // cart.items.push (Object.assign ({}, find, {quantity: 1}))
+                },
+                deleteProduct (product) {
+                    let id = product
+                    
+                    let find = this.items.findIndex (product => product.product_id === id)
+                    if (find>=0) {
+                        if (this.items[find].quantity>1) {
+                            this.items[find].quantity--
+                        }
+                        else {
+                            this.items.splice(find, 1)
+                        }
+                    } 
+                    
+                    this._checkTotal ()
+                },
+                calculateSum () {
+                    let summa = 0
+                    this.items.forEach(el => summa += el.price* el.quantity)
+                    this.sum = summa
+                    return this.sum
+                },
+                _checkTotal () {
+                    let stotal = 0
+                    this.items.forEach(el => stotal += el.quantity)
+                    this.total = stotal
+                    return this.total
+                },
+                cheklist () {
+                    let str = ''
+                    // let summa = item.calculateSum ()
+                    this._checkTotal ()
+                    this.calculateSum ()
+                    document.querySelector(this.containercart).innerHTML = str
+                    this.items.forEach (item => {
+                        str += `
+                        <div class="bestCart">
+                            <b>${item.product_name}</b>
+                            -
+                            <b>${item.price}$</b>
+                            -
+                            <b>${item.quantity}шт.</b><br>
+                            
+                        </div>
+                            
+                        `
+                        // <button class="btn_del" id = ${item.product_id}>del</button>
+                    }) 
+                    str += `<div class="bestCartIt"><b>Количество товара: ${this.total}</b><br>
+                            <b>Общая сумма заказа ${this.sum}$</b>
+                            </div>`
+                    document.querySelector(this.containercart).innerHTML = str
+
+                }
+            }
+
+
+            catalog.construct () //тут происходит создание объекта и вся прочая магия
+            
+            // let BTN = document.getElementById ('btn_add')
+            // BTN.addEventListener ('click', changeMain)
+            // function changeMain (evt) {
+            // // if (evt.target.tagName === 'IMG') {
+            // //     MAIN_PIC.src = evt.target.src
+            //     console.dir (evt.target)
+            //     //MAIN_PIC.src = source 
+            // }
+            
+            // let BTN = document.querySelector('button[name="Processor"]')
+            // BTN.addEventListener ('click', changeMain)
+            // function changeMain (evt) {
+            // // if (evt.target.tagName === 'IMG') {
+            // //     MAIN_PIC.src = evt.target.src
+            //     console.dir (evt.target)
+            //     //MAIN_PIC.src = source 
+            // }
+            
+            let BEST = document.getElementById ('best')
+            BEST.addEventListener('click', changeMainO)
+            function changeMainO(evt) {
+                if (evt.target.tagName === 'BUTTON') {
+                    let product = +evt.target.id
+                    cart.addProduct(product)
+                }
+                
+            }
+
+
+            // let btn = document.getElementsByTagName("button")
+            // for (var i = 0; i < btn.length; i++) {
+            //     btn[i].onclick = changeBigPicture;
+
+            // }
+            // function changeBigPicture(evt) {
+            //     console.dir(evt.target)
+            // }
+
+        </script>
+</body>
+</html>

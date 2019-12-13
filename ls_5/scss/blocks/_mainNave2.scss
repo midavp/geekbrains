@@ -1,0 +1,21 @@
+.b-mainNave2 {
+    display: flex;
+//    font-size: 12px;
+    justify-content: space-between;
+    background-color: #81b3ff;
+    padding: 30px;
+
+    &_position {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    
+    &__item {
+        color: white;
+        padding-right: 15px;
+        transition-duration: 0.5s;
+    }
+    &__item:hover {
+        color: #999;
+    }
+}

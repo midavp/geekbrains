@@ -1,0 +1,39 @@
+.b-Vivamuslibero {
+    justify-content: space-between;
+    padding: 0 20px;
+    
+    &__item {
+//        max-width: 25%;
+    }
+    
+    &__img {
+        max-width: 100%;
+//        border: 1px solid #eeeeee;
+        padding: 5px;
+        text-align: center;
+    }
+    
+    &__h2 {
+        color: #81b300;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.6px;
+        padding: 20px 0 20px 0;
+        text-align: center
+    }
+    
+    &__text {
+        color: #888888;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20.8px;
+        text-align: justify;
+    }
+    
+}
+
+@media (max-width:800px) {
+    .b-Vivamuslibero__img {
+        padding-top: 20px;
+    }
+}
