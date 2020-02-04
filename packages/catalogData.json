@@ -1,12 +1,10 @@
 ﻿[
-  {
-    " id_product " : 123 ,
-    " product_name " : " Ноутбук111 " ,
-    " цена " : 45600
-  },
-  {
-    " id_product " : 456 ,
-    " product_name " : " Мышка " ,
-    " цена " : 1000
-  }
+{"id":1,"name":"Notebook","price":1000,"img":"https://placehold.it/200x150","quantity":0},
+{"id":2,"name":"Display","price":200,"img":"https://placehold.it/200x150","quantity":0},
+{"id":3,"name":"Keyboard","price":20,"img":"https://placehold.it/200x150","quantity":0},
+{"id":4,"name":"Mouse","price":10,"img":"https://placehold.it/200x150","quantity":0},
+{"id":5,"name":"Phones","price":25,"img":"https://placehold.it/200x150","quantity":0},
+{"id":6,"name":"Router","price":30,"img":"https://placehold.it/200x150","quantity":0},
+{"id":7,"name":"USB-camera","price":18,"img":"https://placehold.it/200x150","quantity":0},
+{"id":8,"name":"Gamepad","price":24,"img":"https://placehold.it/200x150","quantity":0}
 ]
